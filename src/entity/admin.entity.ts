@@ -4,12 +4,12 @@ import {
   OneToOne,
   JoinColumn,
 } from 'typeorm';
-import { User } from './user2';
+import { User } from './user.entity';
 
 @Entity()
 export class Admin {
   @PrimaryGeneratedColumn()
-  id: number;
+  admin_id: number;
 
   @OneToOne(() => User)
   @JoinColumn()
