@@ -19,7 +19,7 @@ export class UserController {
   }
 
   @Delete()
-  deleteUser(@Body() userId: string) {
+  deleteUser(@Body() userId: number) {
     return this.userService.remove(userId);
   }
 }

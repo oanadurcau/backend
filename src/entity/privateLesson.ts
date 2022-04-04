@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn, Column } from "typeorm";
 import { Child } from './child.entity';
 import { Trainer } from './trainer.entity';
-import { Subject } from './subject.entity';
+import { Subject } from '../subject/subject.entity';
 
 @Entity()
 export class PrivateLesson {

@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Trainer } from '../entity/trainer.entity';
 import { TrainerDto } from './trainer.dto';
-import { User } from '../entity/user.entity';
+import { User } from '../user/user.entity';
 import { UserType } from '../entity/userType';
 
 @Injectable()
@@ -26,5 +26,9 @@ export class TrainerService {
     return this.trainerRepository.save(
       new Trainer(user, trainerDto.email, trainerDto.phoneNumber),
     );
+  }
+
+  async remove(id: number): Promise<void> {
+    await this.trainerRepository.delete(id);
   }
 }

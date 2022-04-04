@@ -1,6 +1,6 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Post } from '@nestjs/common';
 import { TrainerService } from './trainer.service';
-import { TrainerDto } from "./trainer.dto";
+import { TrainerDto } from './trainer.dto';
 
 @Controller('api/trainer')
 export class TrainerController {
@@ -13,7 +13,12 @@ export class TrainerController {
   }
 
   @Post()
-  createTrainer(@Body() trainerDto: TrainerDto){
+  createTrainer(@Body() trainerDto: TrainerDto) {
     return this.trainerService.createTrainer(trainerDto);
+  }
+
+  @Delete()
+  deleteTrainer(@Body() trainerId: number) {
+    return this.trainerService.remove(trainerId);
   }
 }

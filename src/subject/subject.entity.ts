@@ -5,6 +5,10 @@ export class Subject {
   @PrimaryGeneratedColumn()
   subject_id: number;
 
-  @Column()
+  @Column({ unique: true })
   name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
 }
