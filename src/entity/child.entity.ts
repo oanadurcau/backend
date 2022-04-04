@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { Parent } from './parent.entity';
+import { Parent } from '../parent/parent.entity';
 
 @Entity()
 export class Child {

@@ -14,7 +14,7 @@ import { PrivateLesson } from './entity/privateLesson';
 import { Trainer } from './entity/trainer.entity';
 import { Child } from './entity/child.entity';
 import { Subject } from './subject/subject.entity';
-import { Parent } from './entity/parent.entity';
+import { Parent } from './parent/parent.entity';
 
 @Module({
   imports: [

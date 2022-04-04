@@ -7,7 +7,7 @@ import {
   OneToMany,
 } from 'typeorm';
 import { User } from '../user/user.entity';
-import { Child } from './child.entity';
+import { Child } from '../entity/child.entity';
 
 @Entity()
 export class Parent {
@@ -26,4 +26,10 @@ export class Parent {
 
   @OneToMany(() => Child, (child) => child.child_id)
   children: Child[];
+
+  constructor(user: User, email: string, phone_number: string) {
+    this.user = user;
+    this.email = email;
+    this.phone_number = phone_number;
+  }
 }
