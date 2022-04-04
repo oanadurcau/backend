@@ -15,19 +15,26 @@ export class UserService {
     return this.usersRepository.find();
   }
 
-  findOne(id: number): Promise<User | undefined> {
-    return this.usersRepository.findOne(id);
+  async findOne(username: string): Promise<User | undefined> {
+    const findUser = await this.usersRepository.findOne({
+      select: ['user_id'],
+      where: { username },
+    });
+    return findUser;
   }
 
   async remove(id: number): Promise<void> {
     await this.usersRepository.delete(id);
   }
 
-  createUser(
+  async createUser(
     username: string,
     password: string,
     type: UserType,
   ): Promise<User> {
+    const findUser = await this.findOne(username);
+
+    if (findUser != null) throw new Error('This username is already taken');
     return this.usersRepository.save(new User(username, password, type));
   }
 }
