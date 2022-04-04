@@ -6,7 +6,7 @@ export class SubjectController {
   constructor(private subjectService: SubjectService) {}
 
   @Get()
-  getAllUsers() {
+  getAllSubjects() {
     console.log('Get all subjects');
     return this.subjectService.findAll();
   }

@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn, Column } from "typeorm";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  OneToOne,
+  JoinColumn,
+  Column,
+} from 'typeorm';
 import { User } from './user.entity';
 
 @Entity()
@@ -16,4 +22,9 @@ export class Trainer {
   @Column()
   phone_number: string;
 
+  constructor(user: User, email: string, phone_number: string) {
+    this.user = user;
+    this.email = email;
+    this.phone_number = phone_number;
+  }
 }

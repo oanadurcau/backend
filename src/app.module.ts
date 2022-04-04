@@ -5,7 +5,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './entity/user.entity';
 import { Admin } from './entity/admin.entity';
 import { UserModule } from './user/user.module';
-import { AdminModule } from './admin/admin.module';
 import { TrainerModule } from './trainer/trainer.module';
 import { ChildModule } from './child/child.module';
 import { ParentModule } from './parent/parent.module';
@@ -25,12 +24,11 @@ import { Parent } from './entity/parent.entity';
       port: 5432,
       username: 'postgres',
       password: 'root',
-      database: 'bway',
+      database: 'database1',
       entities: [User, Admin, Trainer, Parent, Child, PrivateLesson, Subject],
       synchronize: true,
     }),
     UserModule,
-    AdminModule,
     TrainerModule,
     ParentModule,
     ChildModule,

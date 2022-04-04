@@ -12,5 +12,11 @@ export class User {
   password: string;
 
   @Column()
-  type: UserType;
+  type: number;
+
+  constructor(username: string, password: string, type: number) {
+    this.username = username;
+    this.password = password;
+    this.type = type;
+  }
 }
